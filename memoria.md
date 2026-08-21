@@ -160,6 +160,18 @@ Decisões de execução:
 
 **Continua em aberto:** sessão fotográfica profissional. As fotos atuais são pessoais e nota-se — mas um rosto real imperfeito vale muito mais do que um retângulo vazio, sobretudo num público que compra confiança numa pessoa.
 
+**2026-08-21 — Domínio confirmado: marketingforyou.nl. Imagem de partilha criada.**
+
+O domínio já estava correto nos doze sítios onde aparece (canonical, Open Graph, hreflang, JSON-LD, robots, sitemap). Removidos os dois `[[A DEFINIR]]` que ainda pediam confirmação, e atualizadas as datas do `sitemap.xml`.
+
+**Defeito encontrado ao verificar:** o `og:image` apontava para `assets/img/og.jpg`, que nunca existiu. Consequência concreta: partilhar o link no WhatsApp mostrava só texto, sem imagem. Pesa mais neste projeto do que noutro — o WhatsApp é um dos dois canais de contacto e o público move-se por indicação dentro da comunidade.
+
+Criada `assets/img/og.jpg` (1200×630, 99 KB): fundo `--ink-900`, marca-palavra, título, subtítulo e o domínio em `--lime-300`, com a foto do cais à direita desvanecida para o fundo. Sem inventar nada — usa apenas material já aprovado.
+
+Gerada por utilitário Python de uma vez só, como as fotos. O site continua sem build step.
+
+**Nota importante sobre alojamento (2026-08-21):** existem dois projetos na Vercel — o antigo, vindo do Lovable, e o `claudemarketingfy`. O domínio esteve apontado ao antigo, e por isso o telemóvel mostrava a versão velha enquanto o repositório novo publicava sem efeito visível. A mudança do domínio entre projetos é feita no painel da Vercel e não por código. O projeto antigo deve ser apagado depois de confirmado o novo — dois projetos com o mesmo site é a origem exata desta confusão.
+
 **2026-08-21 — Favicon ligada, e o ficheiro original teve de ser reescalado.**
 
 Fonte: `assets/img/favicon.png` (quadrado verde com halo, fornecido pelo cliente).
@@ -379,7 +391,7 @@ Bloqueiam a publicação:
 
 Depois disso:
 
-8. Imagem OG (`assets/img/og.jpg`) para partilhas no WhatsApp e redes
+8. ~~Imagem OG para partilhas no WhatsApp e redes~~ → feito 2026-08-21
 9. Auditoria Lighthouse em mobile — alvo ≥ 95 nas quatro categorias
 10. Ativar a secção de testemunhos quando existir o primeiro
 11. Reabrir a estratégia i18n: **EN primeiro**, NL depois
