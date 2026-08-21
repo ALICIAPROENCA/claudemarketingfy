@@ -160,6 +160,22 @@ Decisões de execução:
 
 **Continua em aberto:** sessão fotográfica profissional. As fotos atuais são pessoais e nota-se — mas um rosto real imperfeito vale muito mais do que um retângulo vazio, sobretudo num público que compra confiança numa pessoa.
 
+**2026-08-21 — Favicon ligada, e o ficheiro original teve de ser reescalado.**
+
+Fonte: `assets/img/favicon.png` (quadrado verde com halo, fornecido pelo cliente).
+
+**Problema encontrado:** a marca ocupava apenas 20×20 px num canvas de 256×262 — 8% da imagem. A 16×16 num separador de browser, isso dá cerca de 1,2 px de verde sobre um quadrado preto. Estaria lá e ninguém a via.
+
+Solução: recorte centrado na marca (56 px de lado, mantendo parte do halo) e geração de `favicon-32.png`, `favicon-192.png` e `apple-touch-icon.png`. O original ficou intacto como fonte.
+
+Regra a manter: **um ícone de favicon precisa da marca a ocupar 50–70% do canvas.** O que funciona num logotipo grande desaparece a 16 px.
+
+Outro detalhe corrigido: o `<link rel="icon">` estava antes do `<meta charset>`. O charset tem de ser o primeiro elemento do `<head>` — caso contrário o browser pode começar a interpretar a página com a codificação errada e voltar atrás.
+
+Caminhos relativos (`assets/img/...`), como o resto do site: funcionam na Vercel e também quando o ficheiro é aberto localmente.
+
+**Alojamento: Vercel** — primeira menção nesta sessão, resolve a pendência de onde alojar. Sem configuração especial: site estático, os ícones são servidos como ficheiros normais.
+
 **2026-08-20 — Foto do hero substituída por versão sem corte, e o recorte forçado saiu do CSS.**
 
 A versão anterior cortava a fila de casas de empena. Isso não é um detalhe estético: aquelas casas são a **única prova visual** de que a foto foi tirada nos Países Baixos, e metade do argumento de venda é estar cá. Cortá-las esvaziava a razão de a foto existir.
@@ -330,7 +346,7 @@ Decisões em aberto:
 - [ ] Calendly: embed inline ou popup por interação?
 - [ ] **Calendly configurado em português e no fuso Europe/Amsterdam** — se a página de agendamento abrir em inglês, a promessa de "tudo em português" quebra-se no exato momento da conversão. É o único ponto do funil que não controlamos por código.
 - [ ] Analytics: Plausible, Umami, GA4 ou nenhum? Se implicar cookies, exige banner de consentimento.
-- [ ] Onde alojar o site
+- [x] ~~Onde alojar o site~~ → Vercel (2026-08-21)
 - [ ] Fase 2: estratégia i18n para NL/EN — pastas manuais, script gerador, ou reconsiderar a stack
 - [x] ~~Fotografia real da pessoa/equipa~~ → duas fotos pessoais em uso desde 2026-08-20. Falta uma sessão profissional.
 
