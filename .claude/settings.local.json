@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:digitalxperience.pt)",
+      "Bash(python -c ' *)",
+      "Bash(sed -i '267s|.*|- [x] ~~Fotografia real da pessoa/equipa~~ → duas fotos pessoais em uso desde 2026-08-20. Falta uma sessão profissional.|' memoria.md)",
+      "Bash(sed -i '289s|.*|3. ~~**Imagem real** para o hero~~ → feito 2026-08-20. Falta screenshot de projeto real para a moldura de browser \\(guardada em comentário no `index.html`\\).|' memoria.md)",
+      "Bash(py -)"
+    ]
+  }
+}

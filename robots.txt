@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# [[A DEFINIR: substituir pelo domínio real assim que estiver registado]]
+Sitemap: https://marketingforyou.nl/sitemap.xml
