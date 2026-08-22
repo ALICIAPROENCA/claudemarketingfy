@@ -3,25 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marketing for you — Site profissional em até 14 dias, em português</title>
+<title>Marketing for you — Sites profissionais e SEO para o seu negócio</title>
 <meta name="description" content="Sites profissionais para quem tem negócio na Holanda e fala português. No ar em até 14 dias, otimizados para o Google. Atendimento em português do início ao fim.">
 
 <link rel="canonical" href="https://marketingforyou.nl/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_PT">
 <meta property="og:site_name" content="Marketing for you">
-<meta property="og:title" content="Marketing for you — Site profissional e SEO para o seu negócio">
+<meta property="og:title" content="Marketing for you — Sites profissionais e SEO para o seu negócio">
 <meta property="og:description" content="Sites profissionais e SEO para quem tem negócio na Holanda e fala português. No ar em até 14 dias, otimizados para o Google.">
 <meta property="og:url" content="https://marketingforyou.nl/">
 <meta property="og:image" content="https://marketingforyou.nl/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- FASE 2 / 3 — ativar quando existirem as versões EN e NL:
 <link rel="alternate" hreflang="pt" href="https://marketingforyou.nl/">
 <link rel="alternate" hreflang="en" href="https://marketingforyou.nl/en/">
 <link rel="alternate" hreflang="nl" href="https://marketingforyou.nl/nl/">
 <link rel="alternate" hreflang="x-default" href="https://marketingforyou.nl/">
--->
 
 <link rel="preload" href="assets/fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -83,9 +81,14 @@
 </head>
 <body>
 
+<!-- Âncora do topo. Tem de viver aqui e não no <header>: o cabeçalho é fixo
+     ao scroll, portanto está sempre à vista, e o browser não o desloca ao
+     clicar no logo — a página mexia 88px e ficava. -->
+<span id="topo"></span>
+
 <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
 
-<header class="site-header" id="topo">
+<header class="site-header">
   <div class="container site-header__inner">
     <a class="logo" href="#topo">
       <span class="logo__mark" aria-hidden="true"></span>
@@ -104,6 +107,14 @@
         Agendar conversa
       </a>
     </nav>
+
+      <nav class="lang" aria-label="Idioma">
+        <ul>
+        <li><span class="lang__atual" aria-current="true">PT</span></li>
+        <li><a href="/en/" hreflang="en">EN</a></li>
+        <li><a href="/nl/" hreflang="nl">NL</a></li>
+        </ul>
+      </nav>
 
     <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
       <span class="nav-toggle__bar"></span>

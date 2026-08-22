@@ -210,6 +210,32 @@
     .nav__cta { display:inline-flex; }
   }
 
+  /* ── Seletor de idioma ────────────────────────────────── */
+  /* Discreto de propósito: quem chega ao site português já está na versão
+     certa. O seletor existe para o companheiro holandês ou anglófono
+     conseguir ler a mesma proposta, não para o visitante escolher. */
+  /* flex:none e nowrap: dentro do cabeçalho flexível, sem isto o seletor
+     é espremido e os três idiomas empilham-se em coluna. */
+  .lang { flex:none; }
+  .lang ul {
+    display:flex; align-items:center; gap:var(--sp-2); flex-wrap:nowrap;
+    white-space:nowrap;
+    font-size:var(--fs-eyebrow); font-weight:600; letter-spacing:.08em;
+  }
+  .lang li + li::before {
+    content:""; display:inline-block; width:1px; height:11px;
+    margin-right:var(--sp-2); background:var(--line-strong);
+    vertical-align:-1px;
+  }
+  .lang a { color:var(--text-3); padding:6px 2px; }
+  .lang a:hover { color:var(--text-1); }
+  .lang__atual { color:var(--lime-300); }
+
+  @media (max-width:1023px) {
+    /* No telemóvel fica ao lado do botão de menu, sem competir com o logo */
+    .lang { margin-left:auto; margin-right:var(--sp-4); }
+  }
+
   .nav-toggle {
     display:flex; flex-direction:column; justify-content:center; gap:5px;
     width:44px; height:44px; padding:0 10px;

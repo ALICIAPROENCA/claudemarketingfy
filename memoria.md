@@ -160,6 +160,27 @@ Decisões de execução:
 
 **Continua em aberto:** sessão fotográfica profissional. As fotos atuais são pessoais e nota-se — mas um rosto real imperfeito vale muito mais do que um retângulo vazio, sobretudo num público que compra confiança numa pessoa.
 
+**2026-08-21 — Versões EN e NL publicadas. O motivo do neerlandês não era o previsto.**
+
+`/en/` e `/nl/` como pastas irmãs da raiz, com o texto real no HTML. PT continua principal.
+
+**A razão do NL corrigiu uma suposição minha, e vale mais do que a tradução em si.** Eu tinha argumentado que traduzir à letra não funcionaria, porque o argumento central — "eu falo a sua língua, você não precisa de falar holandês" — se desfaz perante um leitor holandês.
+
+O que faltava saber: **o NL não é para conquistar clientes holandeses.** Existem muitos casais interculturais nos Países Baixos — um lusófono com companheiro holandês — e quando o casal avalia a decisão em conjunto, o companheiro precisa de perceber o que está em cima da mesa. O leitor muda; a oferta e o destinatário são os mesmos.
+
+Com isso, a tradução fiel passa a ser a opção certa, e a minha objeção deixa de se aplicar. Registo o erro porque a lição é geral: antes de recusar uma tradução literal por razões de posicionamento, perguntar **quem** vai ler.
+
+**Decisões de execução:**
+
+- Três pastas à mão, sem build step — a única opção que não obrigava a mexer na stack registada. Custo: cada mudança de texto passa a ser feita em três sítios.
+- Seletor `PT | EN | NL` no cabeçalho, discreto. Retira a decisão de "sem seletor de idioma" da §4, que só fazia sentido enquanto o PT era a única versão.
+- `hreflang` ativado nas três páginas e no `sitemap.xml`, que passou de 3 para 9 URLs.
+- Páginas legais traduzidas com nomes localizados (`privacy-policy.html`, `privacybeleid.html`). Consequência a não esquecer: **o texto jurídico em falta passou a faltar em triplicado.**
+
+**Duas armadilhas do gerador, para quem lá voltar:** substituir a frase mais longa primeiro (senão "Serviços" parte "Serviços de SEO"), e preservar os espaços à volta dos nós de texto (senão uma frase seguida de `<em>` cola-se à seguinte).
+
+**Por decidir:** o Calendly continua em português. Para quem chega pelo /en/ ou /nl/, a promessa de ser atendido na sua língua quebra-se no momento da marcação.
+
 **2026-08-21 — Domínio confirmado: marketingforyou.nl. Imagem de partilha criada.**
 
 O domínio já estava correto nos doze sítios onde aparece (canonical, Open Graph, hreflang, JSON-LD, robots, sitemap). Removidos os dois `[[A DEFINIR]]` que ainda pediam confirmação, e atualizadas as datas do `sitemap.xml`.
@@ -359,7 +380,7 @@ Decisões em aberto:
 - [ ] **Calendly configurado em português e no fuso Europe/Amsterdam** — se a página de agendamento abrir em inglês, a promessa de "tudo em português" quebra-se no exato momento da conversão. É o único ponto do funil que não controlamos por código.
 - [ ] Analytics: Plausible, Umami, GA4 ou nenhum? Se implicar cookies, exige banner de consentimento.
 - [x] ~~Onde alojar o site~~ → Vercel (2026-08-21)
-- [ ] Fase 2: estratégia i18n para NL/EN — pastas manuais, script gerador, ou reconsiderar a stack
+- [x] ~~Fase 2: estratégia i18n~~ → três pastas à mão, EN e NL publicadas 2026-08-21
 - [x] ~~Fotografia real da pessoa/equipa~~ → duas fotos pessoais em uso desde 2026-08-20. Falta uma sessão profissional.
 
 Sem bloqueio imediato:

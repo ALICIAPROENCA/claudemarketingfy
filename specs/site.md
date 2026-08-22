@@ -132,7 +132,17 @@ Nota importante: o português aqui não é uma tradução do site, é o produto.
 
 Implicação de SEO: o site é em português mas o mercado é geográfico (Países Baixos). As páginas devem sinalizar a geografia — menções a cidades/região `[[A DEFINIR]]`, JSON-LD com `areaServed` nos Países Baixos — sem deixar de ser indexadas como conteúdo português.
 
-**Fase 2: Inglês (EN). Fase 3: Neerlandês (NL).**
+**Fase 2 e 3 — CONCLUÍDAS em 2026-08-21: /en/ e /nl/ estão no ar.**
+
+O português continua a ser a versão principal, na raiz. `/en/` e `/nl/` são pastas irmãs com o texto real no HTML — sem JavaScript de tradução, para o Google indexar as três.
+
+**O neerlandês não serve clientes holandeses.** Existe porque há muitos casais interculturais nos Países Baixos: um lusófono com companheiro holandês. Quando o casal avalia a decisão em conjunto, o companheiro precisa de conseguir ler o que está a ser proposto.
+
+Consequência prática, e é o oposto do que estava previsto aqui: **o copy é tradução fiel do português.** A oferta é a mesma e destina-se à mesma pessoa; muda apenas quem está a ler por cima do ombro. Não reescrever o NL como se fosse para conquistar clientes neerlandeses — deixaria de servir o propósito.
+
+Manutenção: **três pastas à mão**, sem build step. Uma mudança de texto passa a ser feita em três sítios. O utilitário que gerou as versões está fora do projeto e pode voltar a ser usado.
+
+~~Plano original abaixo, mantido para histórico.~~
 
 A ordem foi invertida em relação ao plano inicial. A agência **já atende em inglês** — logo, o EN serve clientes que existem hoje e que neste momento não têm por onde entrar. É acessibilidade, tal como o português, e por isso vem primeiro.
 
