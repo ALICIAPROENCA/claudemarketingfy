@@ -1,0 +1,3 @@
+# Projeto separado, com o seu próprio git. Não pertence a este repositório:
+# committado como submódulo deixava um ponteiro vazio que nenhum clone resolve.
+visual-identity-master/
