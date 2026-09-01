@@ -160,6 +160,28 @@ Decisões de execução:
 
 **Continua em aberto:** sessão fotográfica profissional. As fotos atuais são pessoais e nota-se — mas um rosto real imperfeito vale muito mais do que um retângulo vazio, sobretudo num público que compra confiança numa pessoa.
 
+**2026-09-01 — Portfólio ativado: três sites entregues a clientes reais.**
+
+A secção estava especificada e desativada desde o início, à espera exatamente disto. Entrou entre a prova social e os preços — evidência mesmo antes do preço.
+
+| Cliente | Contexto |
+|---|---|
+| Peter Wilde | Gestor de crises, Enschede |
+| Flecos | Contabilidade, Amsterdam |
+| BeeHolder Cleaner | Empresa de limpeza, Gronau |
+
+**Confirmado antes de publicar que são clientes reais, não demonstrações.** Os endereços são `.lovable.app` e um deles tem `demo` no URL, o que podia querer dizer o contrário — e apresentar demonstrações como trabalho entregue é exatamente o que a `design.md` §8 proíbe. Perguntar custou uma mensagem; enganar-se custaria a credibilidade toda.
+
+**Sem links nos cartões**, por decisão da Alicia: os sites ainda não estão em domínio próprio. Quando estiverem, é uma linha por projeto — e aí ganham a verificabilidade que hoje não têm.
+
+**Capturas feitas por mim**, com Playwright: mesmo enquadramento nos três, distintivo do Lovable removido, e exportadas em AVIF + WebP (18–20 KB cada). Ficam consistentes, o que fotos de écrã tiradas à mão nunca ficam.
+
+**O hero passou a mostrar um projeto**, dentro da moldura de browser que estava guardada em comentário desde o início. A fotografia da Alicia saiu do primeiro écrã e ficou só na secção da história. Consequência a não esquecer: **perdeu-se a prova visual de estar nos Países Baixos** — o texto continua a dizê-lo, mas deixa de se ver. Reversível a qualquer momento.
+
+**Frase corrigida antes de ir para o ar:** o lead dizia "cada um feito na língua dos clientes de quem o encomendou — e tratado comigo em português". A segunda metade era falsa: dois dos três clientes foram atendidos em inglês. Saiu.
+
+**Sinal de alerta sobre a manutenção tripla:** a Alicia reescreveu o hero em português e as versões EN e NL ficaram com o texto antigo até eu dar por isso. Aconteceu na primeira alteração depois de publicar os três idiomas. Enquanto não houver gerador, cada mudança de copy tem de ser aplicada nas três pastas na mesma sessão.
+
 **2026-08-21 — Versões EN e NL publicadas. O motivo do neerlandês não era o previsto.**
 
 `/en/` e `/nl/` como pastas irmãs da raiz, com o texto real no HTML. PT continua principal.
@@ -386,7 +408,6 @@ Decisões em aberto:
 Sem bloqueio imediato:
 
 - [ ] Testemunhos e autorização de uso dos nomes — a secção editável já está especificada e espera-os
-- [ ] Projetos de portfólio e screenshots
 - [ ] Redes sociais
 - [ ] Email próprio no domínio (`alicia@marketingforyou.nl` ou semelhante) em vez do Gmail — não bloqueia, mas o domínio vai ser comprado de qualquer forma e um endereço gratuito numa agência que vende presença profissional é uma incoerência que este público repara
 - [x] ~~Fotografia real da pessoa~~ → duas fotos pessoais adicionadas 2026-08-20. Falta sessão profissional.

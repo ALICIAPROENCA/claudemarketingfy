@@ -294,6 +294,20 @@
   .browser__bar span { width:8px; height:8px; border-radius:50%; background:var(--line-strong); }
   .browser__body { aspect-ratio:4/3; }
   .browser__ph { height:100%; background:linear-gradient(160deg, var(--moss), var(--ink-700) 60%); }
+  .browser img { width:100%; height:auto; display:block; }
+  .browser--hero { margin:0; }
+
+  /* ── Portfólio ────────────────────────────────────────── */
+  /* auto-fit: a grelha adapta-se a 1, 2, 3 ou mais projetos sem
+     alteração de código, tal como a dos testemunhos. */
+  .works {
+    display:grid; gap:var(--sp-6);
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .work .browser { margin-bottom:var(--sp-4); }
+  .work img { width:100%; height:auto; display:block; }
+  .work__name { font-size:var(--fs-h4); font-weight:600; color:var(--text-1); }
+  .work__meta { font-size:var(--fs-sm); color:var(--text-3); margin-top:2px; }
 
   /* ── Cards ────────────────────────────────────────────── */
   .card {
