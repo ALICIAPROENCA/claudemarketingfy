@@ -47,7 +47,10 @@
     /* Espaçamento */
     --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px;
     --sp-7:48px; --sp-8:64px; --sp-9:96px; --sp-10:128px; --sp-11:160px;
-    --section-y:clamp(80px, 11vw, 160px);
+    /* Reduzido de clamp(80px,11vw,160px) a 2026-09-01: 160px em cima e
+       160px em baixo davam 320px entre secções, o que em ecrã largo
+       parecia um buraco em vez de respiro. */
+    --section-y:clamp(64px, 6vw, 104px);
 
     /* Raios */
     --r-sm:8px; --r-md:12px; --r-lg:20px; --r-xl:28px; --r-pill:999px;
@@ -297,6 +300,83 @@
   .browser img { width:100%; height:auto; display:block; }
   .browser--hero { margin:0; }
 
+  /* ── Sobre mim ────────────────────────────────────────── */
+  .about { display:grid; gap:var(--sp-6); }
+  @media (min-width:768px) {
+    .about { grid-template-columns:260px 1fr; gap:var(--sp-8); align-items:start; }
+  }
+  @media (min-width:1024px) { .about { grid-template-columns:320px 1fr; } }
+  .about__text p { color:var(--text-2); font-size:var(--fs-body); }
+  .about__text p + p { margin-top:var(--sp-4); }
+  .about__lead { font-size:var(--fs-lead) !important; color:var(--text-1) !important; }
+
+  /* ── Simulador de orçamento ───────────────────────────── */
+  .calc { display:grid; gap:var(--sp-6); align-items:start; }
+  @media (min-width:900px) { .calc { grid-template-columns:1fr 340px; gap:var(--sp-8); } }
+
+  .calc__controls { display:grid; gap:var(--sp-6); }
+  .calc__group { border:0; padding:0; margin:0; }
+  .calc__group legend { font-size:var(--fs-h4); font-weight:600; color:var(--text-1); padding:0; margin-bottom:var(--sp-3); }
+  .calc__opts { display:flex; flex-wrap:wrap; gap:var(--sp-2); }
+
+  .calc__opt { position:relative; }
+  .calc__opt input { position:absolute; opacity:0; width:0; height:0; }
+  .calc__opt span {
+    display:inline-flex; align-items:center; min-height:44px; padding:10px 18px;
+    border:1px solid var(--line); border-radius:var(--r-pill);
+    font-size:var(--fs-sm); color:var(--text-2); cursor:pointer;
+    transition:border-color 180ms var(--ease), background-color 180ms var(--ease), color 180ms var(--ease);
+  }
+  .calc__opt span:hover { border-color:var(--line-strong); color:var(--text-1); }
+  .calc__opt input:checked + span {
+    border-color:var(--lime-400); background:var(--lime-wash); color:var(--text-1);
+  }
+  .calc__opt input:focus-visible + span { outline:2px solid var(--lime-400); outline-offset:3px; }
+  .calc__hint { font-size:var(--fs-sm); color:var(--text-3); margin-top:var(--sp-3); max-width:52ch; }
+
+  .calc__result {
+    padding:var(--sp-6); background:var(--ink-700);
+    border:1px solid var(--lime-400); border-radius:var(--r-lg);
+    background-image:linear-gradient(var(--lime-wash), var(--lime-wash));
+  }
+  .calc__label { font-size:var(--fs-eyebrow); font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--text-3); }
+  .calc__price { margin-top:var(--sp-2); }
+  .calc__price span {
+    font-family:var(--font-display); font-weight:600;
+    font-size:clamp(1.75rem, 3.4vw, 2.25rem); line-height:1.1; color:var(--text-1);
+  }
+  .calc__vat { font-size:var(--fs-sm); color:var(--text-3); margin-top:var(--sp-1); }
+  .calc__extras { display:grid; gap:var(--sp-2); margin-block:var(--sp-5); }
+  .calc__extras:empty { margin-block:var(--sp-4); }
+  .calc__extras li {
+    display:flex; gap:10px; font-size:var(--fs-sm); color:var(--text-2);
+  }
+  .calc__extras li::before { content:"+"; color:var(--lime-400); font-weight:600; flex:none; }
+  .calc__note { font-size:var(--fs-sm); color:var(--text-3); margin-top:var(--sp-4); }
+
+  /* ── Diagnóstico ──────────────────────────────────────── */
+  .quiz {
+    padding:var(--sp-6); background:var(--ink-700);
+    border:1px solid var(--line); border-radius:var(--r-lg);
+    min-height:280px;
+  }
+  @media (min-width:768px) { .quiz { padding:var(--sp-7); } }
+  .quiz__count { font-size:var(--fs-eyebrow); font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--lime-300); }
+  .quiz__q { margin-top:var(--sp-3); font-size:var(--fs-h3); }
+  .quiz__opts { display:grid; gap:var(--sp-3); margin-top:var(--sp-6); }
+  @media (min-width:640px) { .quiz__opts { grid-template-columns:repeat(3, 1fr); } }
+
+  .quiz__opt {
+    min-height:48px; padding:14px 18px; text-align:left;
+    background:var(--ink-600); border:1px solid var(--line); border-radius:var(--r-md);
+    color:var(--text-1); font-size:var(--fs-sm); cursor:pointer;
+    transition:border-color 180ms var(--ease), background-color 180ms var(--ease), transform 180ms var(--ease);
+  }
+  .quiz__opt:hover { border-color:var(--lime-400); background:var(--ink-700); transform:translateY(-2px); }
+
+  .quiz__texto { margin-top:var(--sp-4); color:var(--text-2); font-size:var(--fs-body); }
+  .quiz__acoes { display:flex; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-6); }
+
   /* ── Portfólio ────────────────────────────────────────── */
   /* auto-fit: a grelha adapta-se a 1, 2, 3 ou mais projetos sem
      alteração de código, tal como a dos testemunhos. */
@@ -418,6 +498,20 @@
 
   /* A frase é o argumento inteiro desta secção: tamanho de declaração,
      não de subtítulo, e respiro à volta para respirar sozinha. */
+  /* Texto à esquerda, imagem à direita: o bloco tinha metade da largura
+     vazia em écrã largo. */
+  @media (min-width:900px) {
+    .longgame { display:grid; grid-template-columns:1fr 300px; gap:var(--sp-8); align-items:center; }
+    .longgame__claim { grid-column:1; }
+    .longgame__intro { grid-column:1; }
+    .longgame__img { grid-column:2; grid-row:1 / span 2; }
+  }
+  .longgame__img { margin:0; }
+  .longgame__img img {
+    width:100%; height:auto; display:block;
+    border-radius:var(--r-lg); border:1px solid var(--line);
+  }
+
   .longgame__claim {
     max-width:20ch;
     font-size:var(--fs-h2); line-height:1.06; letter-spacing:-.02em; font-weight:600;

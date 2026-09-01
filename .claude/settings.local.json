@@ -11,7 +11,9 @@
       "Bash(git commit *)",
       "Bash(git push *)",
       "Bash(git rev-list *)",
-      "Bash(py -c ' *)"
+      "Bash(py -c ' *)",
+      "Bash(awk '{print \"original:\", $5}')",
+      "Bash(git reset *)"
     ]
   }
 }

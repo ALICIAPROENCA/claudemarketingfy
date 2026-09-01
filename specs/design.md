@@ -139,13 +139,13 @@ Base de 4px.
 
 `--sp-1: 4px` · `--sp-2: 8px` · `--sp-3: 12px` · `--sp-4: 16px` · `--sp-5: 24px` · `--sp-6: 32px` · `--sp-7: 48px` · `--sp-8: 64px` · `--sp-9: 96px` · `--sp-10: 128px` · `--sp-11: 160px`
 
-- **Padding vertical de secção:** `clamp(80px, 11vw, 160px)`
+- **Padding vertical de secção:** `clamp(64px, 6vw, 104px)` — reduzido a 2026-09-01; os 160px anteriores davam 320px entre secções e liam-se como buraco
 - **Container:** `max-width: 1240px`, gutter 20px em mobile e 40px a partir de `lg`
 - **Grelha:** 12 colunas em desktop, `gap` de 24px; coluna única abaixo de `md`
 - **Título → corpo:** `--sp-5` · **Eyebrow → título:** `--sp-4` · **Corpo → CTA:** `--sp-7`
 - **Padding interno de card:** 32px em desktop, 24px em mobile
 
-O respiro entre secções nunca desce abaixo de 80px, mesmo em mobile. É a diferença entre premium e apertado.
+O respiro entre secções nunca desce abaixo de 64px, mesmo em mobile. É a diferença entre premium e apertado.
 
 ## 5. Bordas e raios
 

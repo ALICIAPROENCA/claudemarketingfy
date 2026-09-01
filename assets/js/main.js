@@ -69,9 +69,6 @@ function initNav() {
 
 /* ── Entrada de elementos: uma vez por elemento ─────────────────── */
 function initReveal() {
-  // O JS arrancou: a rede de segurança do <head> já não é precisa.
-  clearTimeout(window.__revealFailsafe);
-
   const items = document.querySelectorAll('[data-reveal]');
   if (!items.length) return;
 
@@ -94,6 +91,18 @@ function initReveal() {
   }, { threshold: 0.15, rootMargin: '0px 0px -40px' });
 
   items.forEach((el) => observer.observe(el));
+
+  // Segunda rede de segurança. A do <head> cobre "o JS não arrancou";
+  // esta cobre "o JS arrancou mas o observador nunca disparou" — pode
+  // acontecer se o separador nunca chegar a ser desenhado. Sem ela, a
+  // página fica permanentemente em branco, que é o pior desfecho possível
+  // num site que vende competência técnica.
+  clearTimeout(window.__revealFailsafe);
+  setTimeout(() => {
+    if (!document.querySelector('[data-reveal].is-visible')) {
+      document.documentElement.classList.remove('js');
+    }
+  }, 2000);
 }
 
 /* ── Ano do rodapé ──────────────────────────────────────────────── */
@@ -106,3 +115,94 @@ initHeader();
 initNav();
 initReveal();
 initYear();
+
+/* ── Simulador de orçamento ─────────────────────────────────────── */
+/* Usa os preços reais. Acima de 5 páginas não inventa um valor por
+   página — diz "orçamento à parte", que é a verdade. */
+function initCalculadora() {
+  const calc = document.querySelector('.calc');
+  if (!calc) return;
+
+  const valor  = document.getElementById('calc-valor');
+  const extras = document.getElementById('calc-extras');
+  const t = calc.dataset;
+
+  const textos = {
+    base:      t.base      || 'a partir de €199',
+    orcamento: t.orcamento || 'sob orçamento',
+    paginas:   t.paginas   || 'Páginas acima de 5, orçamentadas à parte',
+    manut:     t.manut     || 'Manutenção, hospedagem e domínio — €19,90/mês, sem BTW',
+    seo:       t.seo       || 'Serviços de SEO — sob consulta',
+  };
+
+  const escolhido = (nome) =>
+    calc.querySelector(`input[name="${nome}"]:checked`)?.value;
+
+  function atualizar() {
+    const muitasPaginas = escolhido('paginas') === '2';
+    valor.textContent = muitasPaginas ? textos.orcamento : textos.base;
+
+    const linhas = [];
+    if (muitasPaginas)                  linhas.push(textos.paginas);
+    if (escolhido('manutencao') === '1') linhas.push(textos.manut);
+    if (escolhido('seo') === '1')        linhas.push(textos.seo);
+
+    extras.replaceChildren(...linhas.map((texto) => {
+      const li = document.createElement('li');
+      li.textContent = texto;
+      return li;
+    }));
+  }
+
+  calc.addEventListener('change', atualizar);
+  atualizar();
+}
+
+/* ── Diagnóstico ────────────────────────────────────────────────── */
+/* Três perguntas, resposta à medida. Não promete resultados: devolve o
+   que faz sentido fazer a seguir. */
+function initDiagnostico() {
+  const quiz = document.getElementById('quiz');
+  if (!quiz) return;
+
+  const passos = [...quiz.querySelectorAll('.quiz__step')];
+  const fim = quiz.querySelector('.quiz__fim');
+  const titulo = document.getElementById('quiz-titulo');
+  const texto = document.getElementById('quiz-texto');
+  const respostas = [];
+
+  const RESULTADOS = JSON.parse(quiz.dataset.resultados || '{}');
+
+  function mostrar(indice) {
+    passos.forEach((p, i) => { p.hidden = i !== indice; });
+    fim.hidden = true;
+  }
+
+  function concluir() {
+    const chave = respostas[0].startsWith('site-nao') ? 'sem-site'
+                : respostas[1] === 'google-sim'       ? 'visivel'
+                : 'invisivel';
+    const r = RESULTADOS[chave] || {};
+    titulo.textContent = r.titulo || '';
+    texto.textContent = r.texto || '';
+    passos.forEach((p) => { p.hidden = true; });
+    fim.hidden = false;
+    fim.scrollIntoView({ block: 'nearest' });
+  }
+
+  quiz.addEventListener('click', (e) => {
+    const botao = e.target.closest('.quiz__opt');
+    if (!botao) return;
+    respostas.push(botao.dataset.valor);
+    if (respostas.length < passos.length) mostrar(respostas.length);
+    else concluir();
+  });
+
+  document.getElementById('quiz-repetir')?.addEventListener('click', () => {
+    respostas.length = 0;
+    mostrar(0);
+  });
+}
+
+initCalculadora();
+initDiagnostico();

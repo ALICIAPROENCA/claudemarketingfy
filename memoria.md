@@ -160,6 +160,37 @@ Decisões de execução:
 
 **Continua em aberto:** sessão fotográfica profissional. As fotos atuais são pessoais e nota-se — mas um rosto real imperfeito vale muito mais do que um retângulo vazio, sobretudo num público que compra confiança numa pessoa.
 
+**2026-09-01 — Registo informal no holandês e no inglês.**
+
+O NL usava `u`, que é o tratamento institucional — de banco e seguradora. Corrigido para `je`/`jij` a pedido da Alicia, confirmado por falante nativo.
+
+Registo o erro porque a lição é geral: o português trata por **"você"**, que é caloroso e neutro. Traduzir isso para `u` tornou o holandês **mais frio do que o original**, o oposto do que essa versão existe para fazer. Ao escolher tratamento noutra língua, a pergunta não é "qual é o equivalente literal" mas "qual é o equivalente **em registo**".
+
+No inglês o mesmo problema noutra forma: sem contrações (*"you do not"*, *"cannot"*), lia-se rígido. Passou a *"you don't"*, *"can't"*.
+
+**Menções a "em português" retiradas das versões EN e NL.** Um visitante que escolhe inglês vai ser atendido em inglês; dizer-lhe que tudo corre em português é confuso. Ficaram só três, todas corretas: a história pessoal, a lista de nacionalidades, e a resposta da FAQ sobre idiomas.
+
+**2026-09-01 — Secção pessoal separada do bloco de SEO, e fases dos 3 meses removidas.**
+
+A secção fazia duas coisas ao mesmo tempo. Agora: a metáfora *"aparecer no Google é como construir reputação num país novo"* fica no bloco do SEO, e nasce **"Sobre mim — Quem está do outro lado"**, só sobre a Alicia.
+
+As fases Mês 1 / Mês 2 / Mês 3 saíram por decisão dela: não pertenciam a uma secção pessoal e liam-se como calendário de resultados. Saiu também *"com o objetivo de chegar à primeira página"*.
+
+~~Entrada de 2026-08-20 que defendia as três fases.~~ Continua válida a razão pela qual foram escritas — descrever processo torna prazos credíveis — mas o sítio estava errado e o risco de leitura como promessa superava o ganho.
+
+**2026-09-01 — Duas secções interativas: simulador de orçamento e diagnóstico.**
+
+Pedido: "o site está muito estático". Ambas respeitam a `design.md` §11 — não há carrossel, contador nem movimento decorativo; cada uma tem função.
+
+**Simulador:** páginas, manutenção e SEO, com os preços reais. Acima de 5 páginas **não inventa um valor por página** — mostra "sob orçamento". Isso não é limitação, é o argumento: uma calculadora que se recusa a chutar um número diz mais a este público do que qualquer promessa.
+
+**Diagnóstico:** três perguntas, resposta à medida. Nenhum dos três resultados promete posição no Google; dizem o que faria a seguir. Textos guardados em `data-resultados` no HTML, não no JS, para continuarem traduzíveis.
+
+JS total: 6,5 KB em bruto, muito dentro do orçamento de 20 KB.
+
+**2026-09-01 — Respiro entre secções reduzido.**
+`--section-y` passou de `clamp(80px, 11vw, 160px)` para `clamp(64px, 6vw, 104px)`. Em ecrã largo eram 320px entre secções — lia-se como buraco, não como respiro. Altera o valor registado em `design.md` §4.
+
 **2026-09-01 — Portfólio ativado: três sites entregues a clientes reais.**
 
 A secção estava especificada e desativada desde o início, à espera exatamente disto. Entrou entre a prova social e os preços — evidência mesmo antes do preço.
